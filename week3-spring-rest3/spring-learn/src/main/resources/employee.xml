@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="department-it"
+          class="com.cognizant.springlearn.Department">
+        <property name="id" value="1"/>
+        <property name="name" value="IT"/>
+    </bean>
+
+    <bean id="department-hr"
+          class="com.cognizant.springlearn.Department">
+        <property name="id" value="2"/>
+        <property name="name" value="HR"/>
+    </bean>
+
+    <bean id="department-finance"
+          class="com.cognizant.springlearn.Department">
+        <property name="id" value="3"/>
+        <property name="name" value="Finance"/>
+    </bean>
+
+    <bean id="employee-1"
+          class="com.cognizant.springlearn.Employee">
+        <property name="id" value="1"/>
+        <property name="name" value="John"/>
+        <property name="salary" value="50000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="department-it"/>
+    </bean>
+
+    <bean id="employee-2"
+          class="com.cognizant.springlearn.Employee">
+        <property name="id" value="2"/>
+        <property name="name" value="Alice"/>
+        <property name="salary" value="60000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="department-hr"/>
+    </bean>
+
+    <bean id="employee-3"
+          class="com.cognizant.springlearn.Employee">
+        <property name="id" value="3"/>
+        <property name="name" value="Bob"/>
+        <property name="salary" value="45000"/>
+        <property name="permanent" value="false"/>
+        <property name="department" ref="department-it"/>
+    </bean>
+
+    <bean id="employee-4"
+          class="com.cognizant.springlearn.Employee">
+        <property name="id" value="4"/>
+        <property name="name" value="Emma"/>
+        <property name="salary" value="70000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="department-finance"/>
+    </bean>
+
+    <bean id="employeeList"
+          class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee-1"/>
+                <ref bean="employee-2"/>
+                <ref bean="employee-3"/>
+                <ref bean="employee-4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="departmentList"
+          class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="department-it"/>
+                <ref bean="department-hr"/>
+                <ref bean="department-finance"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
